@@ -4,6 +4,9 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
+update 2.0:
+- Added `uchat_backend`, which contains functions for handling the uchat app.
+
 update 1.1 - 1.2:
 - Added settings for vercel.
 

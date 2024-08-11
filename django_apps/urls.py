@@ -16,10 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.http import HttpResponse
 
 urlpatterns = [
     path("neural_network_comparison/", include("neural_network_comparison.urls")),
+    path("uchat_backend/", include("uchat_backend.urls")),
     path("admin/", admin.site.urls),
-    path('', lambda request: HttpResponse('the cow jumped over the moon')),
 ]
