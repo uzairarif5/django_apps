@@ -1,4 +1,4 @@
-from django.http import JsonResponse, HttpResponseServerError, HttpResponse
+from django.http import JsonResponse, HttpResponseServerError
 from django.views.decorators.csrf import csrf_exempt
 import google_auth_oauthlib.flow
 import environ
