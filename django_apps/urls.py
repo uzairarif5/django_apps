@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path("neural_network_comparison/", include("neural_network_comparison.urls")),
-    path("uchat_backend/", include("uchat_backend.urls")),
-    path("admin/", admin.site.urls),
+  path("study_notes_backend/", include("study_notes_backend.urls")),           
+  path("neural_network_comparison/", include("neural_network_comparison.urls")),
+  path("uchat_backend/", include("uchat_backend.urls")),
+  path("admin/", admin.site.urls),
 ]

@@ -2,7 +2,14 @@
 
 A project for all my django-related work. I will make various different projects here.
 
+###
+
+How freezing is done: `pipreqs --force`.
+
 ## Updates
+
+update 3.1:
+- Added a backend for my studynotes project, where calls are made to a postresql database.
 
 update 2.1 - 2.3:
 - Removed the `send_message` function in `uchat_backend/views.py` as that now happens in the frontend.
