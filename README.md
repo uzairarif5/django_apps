@@ -8,6 +8,9 @@ How freezing is done: `pipreqs --force`.
 
 ## Updates
 
+update 3.2:
+- Changed the `requirements.txt`
+
 update 3.1:
 - Added a backend for my studynotes project, where calls are made to a postresql database.
 
