@@ -4,7 +4,7 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
-update 3.2 - 3.5:
+update 3.2 - 3.6:
 - Changed `requirements.txt`.
 
 update 3.1:
