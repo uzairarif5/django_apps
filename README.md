@@ -4,8 +4,8 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
-update 3.2 - 3.4:
-- Changed the `requirements.txt`
+update 3.2 - 3.5:
+- Changed `requirements.txt`.
 
 update 3.1:
 - Added a backend for my studynotes project, where calls are made to a postresql database.
