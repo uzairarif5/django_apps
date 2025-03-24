@@ -4,6 +4,9 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
+update 3.7:
+- Removed a print statement.
+
 update 3.2 - 3.6:
 - Changed `requirements.txt`.
 
