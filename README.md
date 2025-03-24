@@ -4,7 +4,7 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
-update 4.1:
+update 4.1 - 4.2:
 - Chaned host from Vercel to Render.
 
 update 3.2 - 3.7:
