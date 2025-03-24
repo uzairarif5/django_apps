@@ -2,13 +2,9 @@
 
 A project for all my django-related work. I will make various different projects here.
 
-###
-
-How freezing is done: `pipreqs --force`.
-
 ## Updates
 
-update 3.2:
+update 3.2 - 3.3:
 - Changed the `requirements.txt`
 
 update 3.1:
