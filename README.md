@@ -4,11 +4,12 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
-update 3.7:
-- Removed a print statement.
+update 4.1:
+- Chaned host from Vercel to Render.
 
-update 3.2 - 3.6:
+update 3.2 - 3.7:
 - Changed `requirements.txt`.
+- Removed some print statements.
 
 update 3.1:
 - Added a backend for my studynotes project, where calls are made to a postresql database.
