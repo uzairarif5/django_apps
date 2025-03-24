@@ -4,6 +4,10 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
+update 4.4:
+- My study notes websites is in the allowed host.
+- Change requirement.txt.
+
 update 4.3:
 - Changed my code so the `study_notes_backend` now works properly with my study-notes app.
 

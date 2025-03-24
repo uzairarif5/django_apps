@@ -30,6 +30,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 #ALLOWED_HOSTS = ["django-apps-38uv.onrender.com","127.0.0.1"]
 ALLOWED_HOSTS = ["django-apps-38uv.onrender.com"]
 
@@ -59,12 +60,12 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-  'https://django-apps-38uv.onrender.com'
+  'https://uzair-study-notes.vercel.app/'
 ]
 
 #CORS_ALLOWED_ORIGINS = [
 #  'http://localhost:3000',
-#  'https://django-apps-38uv.onrender.com'
+#  'https://uzair-study-notes.vercel.app/'
 #]
 
 
@@ -95,14 +96,14 @@ WSGI_APPLICATION = 'django_apps.wsgi.application'
 tmpPostgres = urlparse(env("DATABASE_URL"))
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': 5432,
-    }
+	'default': {
+		'ENGINE': 'django.db.backends.postgresql',
+		'NAME': tmpPostgres.path.replace('/', ''),
+		'USER': tmpPostgres.username,
+		'PASSWORD': tmpPostgres.password,
+		'HOST': tmpPostgres.hostname,
+		'PORT': 5432,
+	}
 }
 
 # Password validation
@@ -110,16 +111,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
 	{
-			'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+		'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
 	},
 	{
-			'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+		'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
 	},
 	{
-			'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+		'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
 	},
 	{
-			'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+		'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
 	},
 ]
 
