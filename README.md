@@ -4,6 +4,9 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
+update 4.5:
+- Made sure the backend works on the remote server with localhost (provided that the localhost gives the correct password).
+
 update 4.4:
 - My study notes websites is in the allowed host.
 - Change requirement.txt.

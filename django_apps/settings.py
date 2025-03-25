@@ -28,11 +28,16 @@ environ.Env.read_env()
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
-#ALLOWED_HOSTS = ["django-apps-38uv.onrender.com","127.0.0.1"]
-ALLOWED_HOSTS = ["django-apps-38uv.onrender.com"]
+ALLOWED_HOSTS = ["django-apps-38uv.onrender.com","127.0.0.1"]
+
+CORS_ALLOWED_ORIGINS = [
+  'http://localhost:3000',
+  'https://uzair-study-notes.vercel.app'
+]
+
 
 
 # Application definition
@@ -58,16 +63,6 @@ MIDDLEWARE = [
 	'django.contrib.messages.middleware.MessageMiddleware',
 	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-CORS_ALLOWED_ORIGINS = [
-  'https://uzair-study-notes.vercel.app/'
-]
-
-#CORS_ALLOWED_ORIGINS = [
-#  'http://localhost:3000',
-#  'https://uzair-study-notes.vercel.app/'
-#]
-
 
 ROOT_URLCONF = 'django_apps.urls'
 

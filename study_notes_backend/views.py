@@ -3,6 +3,10 @@ from .models import Sources
 from django.http import Http404
 import json
 from django.views.decorators.csrf import csrf_exempt
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 def getOrderedLis(sourcesColor, sourcesOrder, sourcesObjs):
   output = ""
@@ -27,6 +31,8 @@ def getUnorderedLis(sourcesColor, sourcesObjs):
 def getList(request: HttpRequest):
   try:
     input = json.loads(request.body)
+    if ((request.META.get("HTTP_REFERER")=="http://localhost:3000/") and (input["password"] != env("PASS_FOR_LOCAL"))):
+      raise Http404("There was a problem.")
     sourcesColor = input["sourcesColor"]
     sourcesObjs = Sources.objects.filter(id__in=tuple(sourcesColor.keys()))
     output = "<ol id=\"sources\">"
