@@ -4,7 +4,7 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
-update 4.7:
+update 4.7 - 4.8:
 - For `study_notes_backend`, added `data-num` attribute to list items.
 
 update 4.6:

@@ -20,7 +20,7 @@ def getUnorderedLis(sourcesColor, sourcesObjs):
   output = ""
   for sources in sourcesObjs:
     if (sourcesColor[str(sources.id)]):
-      output += "<li><span class=\"colorContainer\" style=\"background-color:" + sourcesColor[str(sources.id)] + ";\"></span>" + sources.content + "</li>"
+      output += "<li data-num=\"" + str(sources.id) + "\"><span class=\"colorContainer\" style=\"background-color:" + sourcesColor[str(sources.id)] + ";\"></span>" + sources.content + "</li>"
     else:
       output += "<li data-num=\"" + str(sources.id) + "\">" + sources.content + "</li>"
   return output
