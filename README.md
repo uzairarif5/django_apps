@@ -4,6 +4,12 @@ A project for all my django-related work. I will make various different projects
 
 ## Updates
 
+update 4.6:
+- For `study_notes_backend`:
+  - Added anotehr view to get all sources.
+  - Made some coding changes.
+  - Added different type of server responses for different kinds of errors.
+
 update 4.5:
 - Made sure the backend works on the remote server with localhost (provided that the localhost gives the correct password).
 

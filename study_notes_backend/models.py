@@ -1,17 +1,19 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
+topicsList = ['language_learning','mathematics', 'statistics', 'natural_sciences', 'computer_science_fundamentals','electrical_engineering', 'computer_science_(advanced_topics)', 'tutorials', 'blog','miscellaneous']
+
 class TopicsTextChoices(models.TextChoices):
-  (0, 'language_learning')
-  (1, 'mathematics')
-  (2, 'statistics')
-  (3, 'natural_sciences')
-  (4, 'computer_science_fundamentals')
-  (5, 'electrical_engineering')
-  (6,'computer_science_(advanced_topics)')
-  (7, 'tutorials')
-  (8, 'blog')
-  (9, 'miscellaneous')  
+  (0, topicsList[0])
+  (1, topicsList[1])
+  (2, topicsList[2])
+  (3, topicsList[3])
+  (4, topicsList[4])
+  (5, topicsList[5])
+  (6, topicsList[6])
+  (7, topicsList[7])
+  (8, topicsList[8])
+  (9, topicsList[9])  
 
 class Sources(models.Model):    
   id = models.AutoField("id", primary_key=True, serialize=True)
