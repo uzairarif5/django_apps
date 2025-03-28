@@ -11,18 +11,18 @@ def getOrderedLis(sourcesColor, sourcesOrder, sourcesObjs):
   output = ""
   for sourceNum in sourcesOrder:
     if (sourcesColor[str(sourceNum)]):
-      output += "<li><span class=\"colorContainer\" style=\"background-color:" + sourcesColor[str(sourceNum)] + ";\"></span>"+sourcesObjs[sourceNum]+"</li>"
+      output += "<li data-num=\"" + str(sourceNum) +"\"><span class=\"colorContainer\" style=\"background-color:" + sourcesColor[str(sourceNum)] + ";\"></span>"+sourcesObjs[sourceNum]+"</li>"
     else:
-      output += "<li>"+sourcesObjs[sourceNum]+"</li>"
+      output += "<li data-num=\"" + str(sourceNum) +"\">"+sourcesObjs[sourceNum]+"</li>"
   return output
 
 def getUnorderedLis(sourcesColor, sourcesObjs):
   output = ""
   for sources in sourcesObjs:
     if (sourcesColor[str(sources.id)]):
-      output += "<li><span class=\"colorContainer\" style=\"background-color:" + sourcesColor[str(sources.id)] + ";\"></span>"+sources.content+"</li>"
+      output += "<li><span class=\"colorContainer\" style=\"background-color:" + sourcesColor[str(sources.id)] + ";\"></span>" + sources.content + "</li>"
     else:
-      output += "<li>"+sources.content+"</li>"
+      output += "<li data-num=\"" + str(sources.id) + "\">" + sources.content + "</li>"
   return output
 
 @csrf_exempt
