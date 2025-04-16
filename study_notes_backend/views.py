@@ -1,5 +1,6 @@
 from .models import Sources
-from django.http import HttpRequest, HttpResponse, HttpResponseServerError, HttpResponseBadRequest, HttpResponseForbidden, JsonResponse
+from django.core.exceptions import PermissionDenied, SuspiciousOperation
+from django.http import HttpRequest, HttpResponse, HttpResponseServerError, HttpResponseBadRequest, JsonResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
 import environ
@@ -33,15 +34,15 @@ def getList(request: HttpRequest):
     input = json.loads(request.body)
     sourcesColor = input["sourcesColor"]
   except:
-    raise HttpResponseBadRequest("There is a problem with the request.")
+    raise SuspiciousOperation
   #either the study notes site or localhost can use this function.
   #For localhost, the password has to be set.
   if ((request.META.get("HTTP_REFERER") != studyNotesSiteLink) or (input["password"] != env("PASS_FOR_LOCAL"))):
-    raise HttpResponseForbidden("Not allowed.")
+    raise PermissionDenied
   try:
     sourcesObjs = Sources.objects.filter(id__in=tuple(sourcesColor.keys()))
   except:
-    raise HttpResponseServerError("Encountered a problem with querying the database.")
+    return HttpResponseServerError("Encountered a problem with querying the database.")
   try:
     output = "<ol id=\"sources\">"
     if ("sourcesOrder" in input):
@@ -52,16 +53,16 @@ def getList(request: HttpRequest):
     output += "</ol>"
     return HttpResponse(output)
   except:
-    raise HttpResponseServerError("Successfully Extracted data from database, but the server wasn't able to process it.")
+    return HttpResponseServerError("Successfully Extracted data from database, but the server wasn't able to process it.")
 
 @csrf_exempt
 def getAllList(request: HttpRequest):
   if (request.META.get("HTTP_REFERER") != studyNotesSiteLink):
-    raise HttpResponseForbidden("Not allowed.")
+    raise PermissionDenied
   try:
     sourcesObjs = Sources.objects.all()
   except:
-    raise HttpResponseServerError("Encountered a problem with querying the database.")
+    return HttpResponseServerError("Encountered a problem with querying the database.")
   try:
     topicWithSource = {}
     for source in list(sourcesObjs):
@@ -71,19 +72,19 @@ def getAllList(request: HttpRequest):
         topicWithSource[topic].append(source.content)
     return JsonResponse(topicWithSource)
   except:
-    raise HttpResponseServerError("Database queries successfully but there was a problem in the server.")
+    return HttpResponseServerError("Database queries successfully but there was a problem in the server.")
 
 @csrf_exempt
 def handleStudyNotesForm(request: HttpRequest):
   if (request.META.get("HTTP_REFERER") != studyNotesSiteLink):
-    raise HttpResponseForbidden("Not allowed.")
+    raise PermissionDenied
   try:
     inputJSON = json.loads(request.body)
   except:
-    raise HttpResponseServerError("Cannot json parse the request body.")
+    raise SuspiciousOperation
   res = requests.post(env("STUDY_NOTES_GOOGLE_SHEET_API_LINK"), json=inputJSON)
   if(res.ok):
     return HttpResponse("Success") 
   else:
-    raise HttpResponseServerError("Encountered a problem with submitting the form.")
+    return HttpResponseServerError("Encountered a problem with submitting the form.")
 

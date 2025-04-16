@@ -5,6 +5,9 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 5.2:
+- Made changes with error responses.
+
 update 5.1:
 - Made sure the `getAllList` in `study_notes_backend` can only be used by the study notes site.
 - Added another function to handle study notes form.
