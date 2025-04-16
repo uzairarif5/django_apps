@@ -8,7 +8,7 @@ import requests
 
 env = environ.Env()
 environ.Env.read_env()
-studyNotesSiteLink = "https://uzair-study-notes.vercel.app"
+studyNotesSiteLink = "https://uzair-study-notes.vercel.app/"
 
 def getOrderedLis(sourcesColor, sourcesOrder, sourcesObjs):
   output = ""
