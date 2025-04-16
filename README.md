@@ -1,8 +1,13 @@
 # Django Apps
 
-A project for all my django-related work. I will make various different projects here.
+A project for all my django-related work. I will make backends for various different projects here.
+Hosted on `render.com`.
 
 ## Updates
+
+update 5.1:
+- Made sure the `getAllList` in `study_notes_backend` can only be used by the study notes site.
+- Added another function to handle study notes form.
 
 update 4.7 - 4.8:
 - For `study_notes_backend`, added `data-num` attribute to list items.
