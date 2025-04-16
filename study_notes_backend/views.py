@@ -37,7 +37,7 @@ def getList(request: HttpRequest):
     raise SuspiciousOperation
   #either the study notes site or localhost can use this function.
   #For localhost, the password has to be set.
-  if ((request.META.get("HTTP_REFERER") != studyNotesSiteLink) or (input["password"] != env("PASS_FOR_LOCAL"))):
+  if ((request.META.get("HTTP_REFERER") != studyNotesSiteLink) and ("password" in input) and (input["password"] != env("PASS_FOR_LOCAL"))):
     raise PermissionDenied
   try:
     sourcesObjs = Sources.objects.filter(id__in=tuple(sourcesColor.keys()))

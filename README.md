@@ -5,7 +5,7 @@ Hosted on `render.com`.
 
 ## Updates
 
-update 5.3 - 5.4:
+update 5.3 - 5.5:
 - The study notes websites was not able to access its function, this is fixed now.
 
 update 5.2:
