@@ -76,6 +76,7 @@ def getAllList(request: HttpRequest):
 
 @csrf_exempt
 def handleStudyNotesForm(request: HttpRequest):
+  print(request.META.get("HTTP_REFERER"))
   if (request.META.get("HTTP_REFERER") != studyNotesSiteLink):
     raise PermissionDenied
   try:
