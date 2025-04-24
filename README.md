@@ -5,6 +5,12 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 5.6:
+- Removed `removeLater` from the `Sources` model.
+- Made changes in `getList`:
+  - Corrected the `PermissionDenied` condition.
+  - Changed `json.loads(request.body)` to `json.loads(request.body.decode("utf-8"))`
+
 update 5.3 - 5.5:
 - The study notes websites was not able to access its function, this is fixed now.
 

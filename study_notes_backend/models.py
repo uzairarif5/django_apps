@@ -19,4 +19,3 @@ class Sources(models.Model):
   id = models.AutoField("id", primary_key=True, serialize=True)
   topic = ArrayField(models.TextField(choices=TopicsTextChoices), null=False)
   content = models.TextField("content", unique=False, null=False)
-  removeLater = models.BooleanField("remove later", default=False)

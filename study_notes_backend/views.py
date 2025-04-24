@@ -1,6 +1,6 @@
 from .models import Sources
 from django.core.exceptions import PermissionDenied, SuspiciousOperation
-from django.http import HttpRequest, HttpResponse, HttpResponseServerError, HttpResponseBadRequest, JsonResponse
+from django.http import HttpRequest, HttpResponse, HttpResponseServerError, JsonResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
 import environ
@@ -31,13 +31,13 @@ def getUnorderedLis(sourcesColor, sourcesObjs):
 @csrf_exempt
 def getList(request: HttpRequest):
   try:
-    input = json.loads(request.body)
+    input = json.loads(request.body.decode("utf-8"))
     sourcesColor = input["sourcesColor"]
   except:
     raise SuspiciousOperation
   #either the study notes site or localhost can use this function.
   #For localhost, the password has to be set.
-  if ((request.META.get("HTTP_REFERER") != studyNotesSiteLink) and ("password" in input) and (input["password"] != env("PASS_FOR_LOCAL"))):
+  if ((request.META.get("HTTP_REFERER") != studyNotesSiteLink) and (("password" not in input) or (input["password"] != env("PASS_FOR_LOCAL")))):
     raise PermissionDenied
   try:
     sourcesObjs = Sources.objects.filter(id__in=tuple(sourcesColor.keys()))
@@ -53,7 +53,7 @@ def getList(request: HttpRequest):
     output += "</ol>"
     return HttpResponse(output)
   except:
-    return HttpResponseServerError("Successfully Extracted data from database, but the server wasn't able to process it.")
+    return HttpResponseServerError("Successfully extracted data from database, but the server wasn't able to process it.")
 
 @csrf_exempt
 def getAllList(request: HttpRequest):
