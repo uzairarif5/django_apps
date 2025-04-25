@@ -5,6 +5,9 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 5.7:
+- Updated `study_notes_backend` to handle additional resources.
+
 update 5.6:
 - Removed `removeLater` from the `Sources` model.
 - Made changes in `getList`:

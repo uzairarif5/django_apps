@@ -22,10 +22,18 @@ def getOrderedLis(sourcesColor, sourcesOrder, sourcesObjs):
 def getUnorderedLis(sourcesColor, sourcesObjs):
   output = ""
   for sources in sourcesObjs:
-    if (sourcesColor[str(sources.id)]):
-      output += "<li data-num=\"" + str(sources.id) + "\"><span class=\"colorContainer\" style=\"background-color:" + sourcesColor[str(sources.id)] + ";\"></span>" + sources.content + "</li>"
-    else:
-      output += "<li data-num=\"" + str(sources.id) + "\">" + sources.content + "</li>"
+    if(str(sources.id) in sourcesColor):
+      if (sourcesColor[str(sources.id)]):
+        output += "<li data-num=\"" + str(sources.id) + "\"><span class=\"colorContainer\" style=\"background-color:" + sourcesColor[str(sources.id)] + ";\"></span>" + sources.content + "</li>"
+      else:
+        output += "<li data-num=\"" + str(sources.id) + "\">" + sources.content + "</li>"
+  return output
+
+def getAdditionalResources(sourcesObjs, resourcesList):
+  output = "<h4>Additional Resources</h4><ol id=\"additionalResources\">"
+  for i in resourcesList:
+    output += "<li>"+sourcesObjs[i]+"</li>"
+  output += "</ol>"
   return output
 
 @csrf_exempt
@@ -40,17 +48,23 @@ def getList(request: HttpRequest):
   if ((request.META.get("HTTP_REFERER") != studyNotesSiteLink) and (("password" not in input) or (input["password"] != env("PASS_FOR_LOCAL")))):
     raise PermissionDenied
   try:
-    sourcesObjs = Sources.objects.filter(id__in=tuple(sourcesColor.keys()))
+    allKeys = list(int(x) for x in sourcesColor.keys())
+    if "additionalResources" in input:
+      allKeys += input["additionalResources"]
+    sourcesObjs = Sources.objects.filter(id__in=tuple(allKeys))
   except:
     return HttpResponseServerError("Encountered a problem with querying the database.")
   try:
-    output = "<ol id=\"sources\">"
-    if ("sourcesOrder" in input):
+    output = "<h4>Main Sources</h4><ol id=\"sources\">"
+    if("sourcesOrder" in input or "additionalResources" in input):
       sourcesObjsReformatted = {d.id: d.content for d in sourcesObjs}
+    if ("sourcesOrder" in input):
       output += getOrderedLis(sourcesColor, input["sourcesOrder"], sourcesObjsReformatted)
     else:
       output += getUnorderedLis(sourcesColor, sourcesObjs)
     output += "</ol>"
+    if ("additionalResources" in input):
+      output += getAdditionalResources(sourcesObjsReformatted, input["additionalResources"])
     return HttpResponse(output)
   except:
     return HttpResponseServerError("Successfully extracted data from database, but the server wasn't able to process it.")
