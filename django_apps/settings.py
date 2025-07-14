@@ -31,11 +31,11 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = True
 
 
-ALLOWED_HOSTS = ["django-apps-38uv.onrender.com","127.0.0.1"]
+ALLOWED_HOSTS = ["django-apps.vercel.app","127.0.0.1"]
 
 CORS_ALLOWED_ORIGINS = [
   'http://localhost:3000',
-  'https://uzair-study-notes.vercel.app'
+  'https://mysterious-study-notes.vercel.app/'
 ]
 
 
