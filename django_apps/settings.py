@@ -13,9 +13,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import environ
 from urllib.parse import urlparse
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Initialise environment variables
 env = environ.Env()
@@ -35,7 +38,7 @@ ALLOWED_HOSTS = ["django-apps.vercel.app","127.0.0.1"]
 
 CORS_ALLOWED_ORIGINS = [
   'http://localhost:3000',
-  'https://mysterious-study-notes.vercel.app/'
+  'https://mysterious-study-notes.vercel.app'
 ]
 
 

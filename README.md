@@ -5,6 +5,9 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 6.2:
+- Undid update 6.1.
+
 update 6.1:
 - Changed `ALLOWED_HOSTS` and `CORS_ALLOWED_ORIGINS`.
 - Swtiched from render to vercel.
