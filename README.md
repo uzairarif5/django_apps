@@ -5,8 +5,9 @@ Hosted on `render.com`.
 
 ## Updates
 
-update 6.2:
-- Undid update 6.1.
+update 6.2 - 6.3:
+- Switched back to render.
+- Changed `ALLOWED_HOSTS`.
 
 update 6.1:
 - Changed `ALLOWED_HOSTS` and `CORS_ALLOWED_ORIGINS`.

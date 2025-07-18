@@ -34,7 +34,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = True
 
 
-ALLOWED_HOSTS = ["django-apps.vercel.app","127.0.0.1"]
+ALLOWED_HOSTS = ["django-apps-dncy.onrender.com","127.0.0.1"]
 
 CORS_ALLOWED_ORIGINS = [
   'http://localhost:3000',
