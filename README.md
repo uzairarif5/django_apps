@@ -5,6 +5,9 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 6.5:
+- Added `CSRF_TRUSTED_ORIGINS`.
+
 update 6.4:
 - Changed `CORS_ALLOWED_ORIGINS`.
 
