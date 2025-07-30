@@ -36,6 +36,7 @@ def getAdditionalResources(sourcesObjs, resourcesList):
   output += "</ol>"
   return output
 
+@csrf_exempt
 def getList(request: HttpRequest):
   try:
     input = json.loads(request.body.decode("utf-8"))
@@ -68,6 +69,7 @@ def getList(request: HttpRequest):
   except:
     return HttpResponseServerError("Successfully extracted data from database, but the server wasn't able to process it.")
 
+@csrf_exempt
 def getAllList(request: HttpRequest):
   if (request.META.get("HTTP_REFERER") != studyNotesSiteLink):
     raise PermissionDenied
@@ -86,8 +88,8 @@ def getAllList(request: HttpRequest):
   except:
     return HttpResponseServerError("Database queries successfully but there was a problem in the server.")
 
+@csrf_exempt
 def handleStudyNotesForm(request: HttpRequest):
-  print(request.META.get("HTTP_REFERER"))
   if (request.META.get("HTTP_REFERER") != studyNotesSiteLink):
     raise PermissionDenied
   try:

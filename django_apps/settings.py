@@ -41,12 +41,6 @@ CORS_ALLOWED_ORIGINS = [
   'https://uzairs-study-notes.vercel.app'
 ]
 
-
-CSRF_TRUSTED_ORIGINS = [
-  'https://uzairs-study-notes.vercel.app'
-]
-
-
 # Application definition
 
 INSTALLED_APPS = [

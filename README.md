@@ -5,7 +5,11 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 6.7:
+- Undid 6.5 and placed `@csrf_exempt` back.
+
 update 6.6:
+- Changed `studyNotesSiteLink`.
 - Removed `@csrf_exempt`.
 
 update 6.5:
