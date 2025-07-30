@@ -5,6 +5,9 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 6.6:
+- Removed `@csrf_exempt`.
+
 update 6.5:
 - Added `CSRF_TRUSTED_ORIGINS`.
 
