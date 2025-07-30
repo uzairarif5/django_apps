@@ -38,7 +38,7 @@ ALLOWED_HOSTS = ["django-apps-dncy.onrender.com","127.0.0.1"]
 
 CORS_ALLOWED_ORIGINS = [
   'http://localhost:3000',
-  'https://mysterious-study-notes.vercel.app'
+  'https://uzairs-study-notes.vercel.app'
 ]
 
 

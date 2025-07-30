@@ -5,6 +5,9 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 6.4:
+- Changed `CORS_ALLOWED_ORIGINS`.
+
 update 6.2 - 6.3:
 - Switched back to render.
 - Changed `ALLOWED_HOSTS`.
