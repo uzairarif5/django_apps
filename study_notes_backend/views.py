@@ -1,4 +1,4 @@
-from .models import Sources
+from .models import Sources, topicsList
 from django.core.exceptions import PermissionDenied, SuspiciousOperation
 from django.http import HttpRequest, HttpResponse, HttpResponseServerError, JsonResponse
 import json
@@ -80,7 +80,7 @@ def getAllList(request: HttpRequest):
   try:
     topicWithSource = {}
     for source in list(sourcesObjs):
-      for topic in source.topic:
+      for topic in topicsList:
         if(topic not in topicWithSource):
           topicWithSource[topic] = []
         topicWithSource[topic].append(source.content)
