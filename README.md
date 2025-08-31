@@ -5,6 +5,9 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 6.8:
+- Made changes to `getAllList`, so it returns the list in order.
+
 update 6.7:
 - Undid 6.5 and placed `@csrf_exempt` back.
 
