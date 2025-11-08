@@ -5,6 +5,9 @@ Hosted on `render.com`.
 
 ## Updates
 
+update 6.10:
+- Changed http://localhost:3000 in `CORS_ALLOWED_ORIGINS` to http://localhost:4000.
+
 update 6.9:
 - Undid 6.8.
 
